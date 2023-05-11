@@ -329,29 +329,68 @@ footer nav ul {
 
 /********** modify **********/
 
-.black-box{
-	display:none;
-    width:1140px;
-    height:60px;
-    background: black;
-}
-.edit{
-	display:flex;
-	width:100px;
-	height:100px;
-	background-color: red;
-}
-
-.test{
-	width:50px;
-	aspect-ratio: 1;
-	background: blue;
-}
-
-.serieux{
-	display: block;
-}
-
-.logout{
+.black-box {
 	display: none;
+	width: 1140px;
+	height: 60px;
+	background: black;
+	align-items: center;
+	justify-content: center;
+}
+
+.edit {
+	color: white;
+	font-size: 16px;
+}
+
+.fa-pen-to-square {
+	color: white;
+	margin-right: 10px;
+}
+
+.publish {
+	border: none;
+	background-color: white;
+	color: black;
+	border-radius: 100vmax;
+	padding: 11px 23px;
+	margin-left: 21px;
+	font-family: 'Work Sans';
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.logout {
+	display: none;
+}
+
+.edited-figure {
+	display: flex;
+	width: 80%;
+	margin: auto;
+	margin-top: 15px;
+	font-family: 'Work Sans';
+}
+
+.fa-black {
+	color: black;
+}
+
+.edited-project {
+	position: absolute;
+	top: 10px;
+	left: 690px;
+	display: flex;
+}
+
+#portfolio {
+	position: relative;
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: initial;
 }

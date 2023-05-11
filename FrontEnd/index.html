@@ -13,15 +13,14 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<script type="module" src="gallery.js"></script>
 	<script type="module" src="home.js"></script>
+	<script src="https://kit.fontawesome.com/d6cf6a425f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<div class="black-box">
-		<div class="edit">
-			<div class="test">
-			</div>
-			<p class="serieux">Modifier</p>
-		</div>
+		<i class="fa-regular fa-pen-to-square fa-lg"></i>
+		<p class="edit">Mode édition</p>
+		<button type="submit" class="publish">publier les changements</button>
 	</div>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
@@ -38,6 +37,12 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
+				<a href="#" class="hidden">
+					<figcaption class="edited-figure">
+						<i class="fa-regular fa-pen-to-square fa-black"></i>
+						<p class="modify">modifier</p>
+					</figcaption>
+				</a>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -52,6 +57,12 @@
 		</section>
 		<section id="portfolio">
 			<h2>Mes Projets</h2>
+			<a href="#" class="hidden">
+				<div class="edited-project">
+					<i class="fa-regular fa-pen-to-square fa-black"></i>
+					<p class="modify">modifier</p>
+				</div>
+			</a>
 			<div class="btn-filtrer">
 				<button class="bouton btn-all">Tous</button>
 				<button class="bouton btn-object">Objets</button>
