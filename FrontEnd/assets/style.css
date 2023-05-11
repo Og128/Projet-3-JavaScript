@@ -324,3 +324,34 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+
+
+
+/********** modify **********/
+
+.black-box{
+	display:none;
+    width:1140px;
+    height:60px;
+    background: black;
+}
+.edit{
+	display:flex;
+	width:100px;
+	height:100px;
+	background-color: red;
+}
+
+.test{
+	width:50px;
+	aspect-ratio: 1;
+	background: blue;
+}
+
+.serieux{
+	display: block;
+}
+
+.logout{
+	display: none;
+}
