@@ -1,6 +1,9 @@
+// Création des variables pour l'authentification
 const loginBtn = document.querySelector(".formLogin");
 const url = "http://localhost:5678/api/users/login";
 
+
+// Authentification auprès de l'API
 loginBtn.addEventListener("submit", async (event) => {
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;

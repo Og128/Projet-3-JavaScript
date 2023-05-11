@@ -327,7 +327,7 @@ footer nav ul {
 
 
 
-/********** modify **********/
+/********** modification page d'accueil **********/
 
 .black-box {
 	display: none;
@@ -393,4 +393,155 @@ footer nav ul {
 
 .show {
 	display: initial;
+}
+
+/********** Création des modals **********/
+
+dialog::backdrop {
+	background-color: black;
+	opacity: 0.6;
+}
+
+dialog {
+	width: 540px;
+	height:740px;
+	border: none;
+	border-radius: 10px;
+}
+
+.modal-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal-close {
+	align-self: end;
+	background: none;
+	border: none;
+}
+
+.modal-close:focus,
+.previous-modal:focus {
+	border: 1px solid lightblue;
+}
+
+dialog h3 {
+	font-size: 23px;
+	font-family: 'Work Sans';
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.gallery-modal {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: auto;
+	column-gap: 7px;
+	row-gap: 10px;
+}
+
+.separator {
+	width: 420px;
+	border: 1px solid #B3B3B3;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.add-picture {
+	border: none;
+	width: fit-content;
+	height: auto;
+	background-color: #1D6154;
+	padding: 10px 50px;
+	border-radius: 60px;
+	font-weight: 700;
+	font-family: 'Syne';
+	color: white;
+}
+
+.delete-gallery {
+	margin-top: 30px;
+	font-family: 'Syne';
+	font-weight: 400;
+	color: #D65353;
+}
+
+.nav-modal {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.box-add-picture {
+	width: 420px;
+	height: 170px;
+	background: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.fa-image-landscape {
+	color: blue;
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+	margin-top: 30px;
+}
+
+.btn-add-picture {
+	border: none;
+	background: #CBD6DC;
+	border-radius: 50px;
+	color: #306685;
+	margin-top: 20px;
+	margin-bottom: 7px;
+	padding: 10px 30px;
+	font-family: 'Work Sans';
+	font-weight: 500;
+}
+
+.box-add-picture p {
+	font-size: 10px;
+	margin-bottom: 20px;
+}
+
+.input-label-modal {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+
+.input-label-modal input {
+	margin-bottom: 21px;
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form-modal .separator {
+	margin-top: 45px;
+}
+
+.form-modal button {
+	display: flex;
+	margin: auto;
+	justify-content: center;
+	width: 235px;
+	height: fit-content;
+	padding: 10px 50px;
+	border: none;
+	border-radius: 60px;
+	background-color: #A7A7A7;
+	color: white;
+	font-family: 'Syne';
+	font-weight: 700;
+}
+
+
+.gallery-modal img{
+	width: 100%;
 }
