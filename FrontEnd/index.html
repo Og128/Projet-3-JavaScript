@@ -83,12 +83,16 @@
 						<button class="modal-close" data-close-modal-two>X</button>
 					</div>
 					<h3>Ajout photo</h3>
-					<form action="#" method="post" class="form-modal">
-						<div class="box-add-picture">
-							<i class="fa-solid fa-image-landscape"></i>
-							<button class="btn-add-picture">+ Ajouter photo</button>
-							<p>jpg, png : 4mo max</p>
-						</div>
+					<form method="post" class="form-modal" enctype="multipart/form-data">
+						<label for="upload_picture">
+							<div class="box-add-picture">
+								<i class="fa-regular fa-image"></i>
+								<div class="btn-add-picture">+ Ajouter photo</div>
+								<input id="upload_picture" name="upload_picture" type="file" multiple />
+								<output>jpg, png : 4mo max</output>
+								<div id="preview_image"></div>
+							</div>
+						</label>
 						<div class="input-label-modal">
 							<label for="title">Titre</label>
 							<input type="text" name="title" id="title">

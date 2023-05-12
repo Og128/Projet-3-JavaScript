@@ -32,8 +32,8 @@ modalOne.addEventListener("click", e => {
 const response = await fetch('http://localhost:5678/api/works');
 const data = await response.json();
 
-function genererModalGallery(data){
-    for (let i = 0; i < data.length; i++){
+function genererModalGallery(data) {
+    for (let i = 0; i < data.length; i++) {
         const modalGallery = document.querySelector(".gallery-modal");
         const figureModalGallery = document.createElement("figure");
         const imageElement = document.createElement("img");
@@ -73,4 +73,18 @@ closeModalTwo.addEventListener("click", () => {
 previousModal.addEventListener("click", () => {
     modalTwo.close();
     modalOne.showModal();
+});
+
+
+// Preview image 
+const previewInput = document.querySelector("#upload_picture");
+let uploadedImage = "";
+previewInput.addEventListener("change", function () {
+    console.log(previewInput.value)
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+        uploadedImage = reader.result;
+        document.querySelector("#preview_image").style.backgroundImage = `url(${uploadedImage})`;
+    });
+    reader.readAsDataURL(this.files[0]);
 });

@@ -404,7 +404,7 @@ dialog::backdrop {
 
 dialog {
 	width: 540px;
-	height:740px;
+	height: 740px;
 	border: none;
 	border-radius: 10px;
 }
@@ -430,7 +430,7 @@ dialog h3 {
 	font-size: 23px;
 	font-family: 'Work Sans';
 	margin-top: 10px;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 }
 
 .gallery-modal {
@@ -474,6 +474,7 @@ dialog h3 {
 }
 
 .box-add-picture {
+	position:relative;
 	width: 420px;
 	height: 170px;
 	background: #E8F1F6;
@@ -483,11 +484,9 @@ dialog h3 {
 	justify-content: center;
 }
 
-.fa-image-landscape {
-	color: blue;
-	width: 50px;
-	height: 50px;
-	background-color: blue;
+.fa-image {
+	font-size: 60px;
+	color:#B9C5CC;
 	margin-top: 30px;
 }
 
@@ -503,9 +502,12 @@ dialog h3 {
 	font-weight: 500;
 }
 
-.box-add-picture p {
-	font-size: 10px;
-	margin-bottom: 20px;
+#upload_picture{
+	display:none;
+}
+
+output{
+	margin-bottom:20px;
 }
 
 .input-label-modal {
@@ -515,9 +517,11 @@ dialog h3 {
 }
 
 .input-label-modal input {
+	margin-top:10px;
 	margin-bottom: 21px;
 	height: 50px;
-	font-size: 1.2em;
+	font-size: 14px;
+	font-family:'Work Sans';
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -541,7 +545,13 @@ dialog h3 {
 	font-weight: 700;
 }
 
-
-.gallery-modal img{
+.gallery-modal img {
 	width: 100%;
+}
+
+#preview_image{
+	position:absolute;
+	width:170px;
+	height:170px;
+	background-size:cover;
 }
