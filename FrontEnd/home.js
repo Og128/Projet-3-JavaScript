@@ -10,7 +10,7 @@ if (getToken) {
     });
     document.querySelector(".black-box").style.display = "flex";
     document.querySelector(".login").style.display = "none";
-    document.querySelectorAll(".bouton").forEach(function (bouton) {
+    document.querySelectorAll(".btn-filtrer").forEach(function (bouton) {
         bouton.remove();
     });
     document.querySelectorAll(".hidden").forEach(function (show) {

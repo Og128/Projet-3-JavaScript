@@ -53,17 +53,12 @@ openModalTwo.addEventListener("click", () => {
     modalOne.close();
     modalTwo.showModal();
 })
-modalTwo.addEventListener("click", e => {
-    const dialogDimensions = modalTwo.getBoundingClientRect()
-    if (
-        e.clientX < dialogDimensions.left ||
-        e.clientX > dialogDimensions.right ||
-        e.clientY < dialogDimensions.top ||
-        e.clientY > dialogDimensions.bottom
-    ) {
+
+window.onclick = function (e) {
+    if (e.target == modalTwo) {
         modalTwo.close();
     }
-});
+}
 
 closeModalTwo.addEventListener("click", () => {
     modalTwo.close();
@@ -75,12 +70,10 @@ previousModal.addEventListener("click", () => {
     modalOne.showModal();
 });
 
-
 // Preview image 
 const previewInput = document.querySelector("#upload_picture");
 let uploadedImage = "";
 previewInput.addEventListener("change", function () {
-    console.log(previewInput.value)
     const reader = new FileReader();
     reader.addEventListener("load", () => {
         uploadedImage = reader.result;

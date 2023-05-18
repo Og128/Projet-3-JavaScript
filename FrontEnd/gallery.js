@@ -19,39 +19,52 @@ function genererGallery(data) {
 }
 genererGallery(data);
 
+
+//demande d'information de l'api
+const responseCat = await fetch('http://localhost:5678/api/categories');
+const galleryCat = await responseCat.json();
+const btnSet = new Set();
+
+//Création bouton reset
+const all = document.querySelector(".btn-filtrer");
+const createAll = document.createElement("button");
+createAll.classList.add("bouton");
+createAll.setAttribute('id', 'all');
+createAll.innerText = "Tous";
+all.append(createAll);
+
+//Génération des boutons de filtrage
+function genererBtn(galleryCat) {
+    for (let i = 0; i < galleryCat.length; i++) {
+        btnSet.add(galleryCat[i]);
+        const selectBtn = document.querySelector(".btn-filtrer");
+        const btnFilter = document.createElement("button");
+        btnFilter.classList.add("bouton", "select");
+        btnFilter.setAttribute('id', galleryCat[i].name)
+        btnFilter.innerText = galleryCat[i].name;
+        selectBtn.append(btnFilter);
+    }
+};
+genererBtn(galleryCat);
+
+//Filtrage des boutons
+const btnFilter = document.querySelectorAll(".select")
+const btnFiltered = btnFilter.forEach(function (click) {
+    click.addEventListener("click", function (e) {
+        const target = e.target.getAttribute('id');
+        const galleryFilter = data.filter(function (picture) {
+            if (target.includes(picture.category.name)) {
+                return picture.category.name;
+            }
+        });
+        document.querySelector(".gallery").innerHTML = "";
+        genererGallery(galleryFilter);
+    })
+})
+
 //Remise à Zéro des filtres
-const btnAllFilter = document.querySelector(".btn-all");
-btnAllFilter.addEventListener("click", function(){
+const btnAllFilter = document.querySelector("#all");
+btnAllFilter.addEventListener("click", function () {
     document.querySelector(".gallery").innerHTML = "";
     genererGallery(data);
-});
-
-// filtrer les objets de la gallerie
-const btnObjectFilter = document.querySelector(".btn-object");
-btnObjectFilter.addEventListener("click", function () {
-    const btnFilter = data.filter(function (object) {
-        return object.categoryId === 1;
-    });
-    document.querySelector(".gallery").innerHTML = "";
-    genererGallery(btnFilter);
-});
-
-// filtrer les appartements de la gallerie
-const btnAppartFilter = document.querySelector(".btn-appartments");
-btnAppartFilter.addEventListener("click", function(){
-    const btnFilter = data.filter(function (appart){
-        return appart.categoryId === 2;
-    });
-    document.querySelector(".gallery").innerHTML = "";
-    genererGallery(btnFilter);
-});
-
-// filtrer les hôtels de la gallerie
-const btnHotelFilter = document.querySelector(".btn-hotel");
-btnHotelFilter.addEventListener("click", function (){
-    const btnFilter = data.filter(function(hotel){
-        return hotel.categoryId === 3;
-    });
-    document.querySelector(".gallery").innerHTML = "";
-    genererGallery(btnFilter);
 });

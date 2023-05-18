@@ -12,10 +12,6 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="https://kit.fontawesome.com/d6cf6a425f.js" crossorigin="anonymous"></script>
-	<script type="module" src="gallery.js"></script>
-	<script type="module" src="home.js"></script>
-	<script type="module" src="modal.js"></script>
-
 </head>
 
 <body>
@@ -83,12 +79,12 @@
 						<button class="modal-close" data-close-modal-two>X</button>
 					</div>
 					<h3>Ajout photo</h3>
-					<form method="post" class="form-modal" enctype="multipart/form-data">
+					<form method="POST" id="addProjet" class="form-modal" enctype="multipart/form-data">
 						<label for="upload_picture">
 							<div class="box-add-picture">
 								<i class="fa-regular fa-image"></i>
 								<div class="btn-add-picture">+ Ajouter photo</div>
-								<input id="upload_picture" name="upload_picture" type="file" multiple />
+								<input id="upload_picture" name="upload_picture" type="file" accept="image/jpeg, image/jpg, image.png" />
 								<output>jpg, png : 4mo max</output>
 								<div id="preview_image"></div>
 							</div>
@@ -97,18 +93,19 @@
 							<label for="title">Titre</label>
 							<input type="text" name="title" id="title">
 							<label for="categorie">Catégorie</label>
-							<input type="text" name="categorie" id="categorie">
+							<select name="categorie" id="categorie">
+								<option value="1" selected>Objets</option>
+								<option value="2">Appartement</option>
+								<option value="3">Hôtels & restaurants</option>
+							</select>
 						</div>
 						<div class="separator"></div>
-						<button class="validate">Valider</button>
+						<button type="submit" form="addProjet" class="validate">Valider</button>
 					</form>
+
 				</div>
 			</dialog>
 			<div class="btn-filtrer">
-				<button class="bouton btn-all">Tous</button>
-				<button class="bouton btn-object">Objets</button>
-				<button class="bouton btn-appartments">Appartements</button>
-				<button class="bouton btn-hotel">Hôtels & restaurants</button>
 			</div>
 			<div class="gallery">
 
@@ -136,6 +133,11 @@
 			</ul>
 		</nav>
 	</footer>
+	<script type="module" src="gallery.js"></script>
+	<script type="module" src="home.js"></script>
+	<script type="module" src="modal.js"></script>
+	<script type="module" src="addproject.js"></script>
+	
 </body>
 
 </html>
