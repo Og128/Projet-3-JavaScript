@@ -39,14 +39,42 @@ function genererModalGallery(data) {
         const imageElement = document.createElement("img");
         imageElement.src = data[i].imageUrl;
         imageElement.alt = data[i].title;
+        imageElement.id = data[i].id;
         const editModalGallery = document.createElement("figcaption");
         editModalGallery.innerText = "Editer";
+        const divIconeModal = document.createElement("a");
+        divIconeModal.href = "#";
+        divIconeModal.id = data[i].id;
+        divIconeModal.classList.add("div-icone");
+        const iconeModalDelete = document.createElement("i");
+        iconeModalDelete.classList.add("fa-regular", "fa-trash-can");
+        const divIconeModalArrow = document.createElement("div");
+        divIconeModalArrow.classList.add("div-icone-arrow");
+        const iconeModalArrow = document.createElement("i");
+        iconeModalArrow.classList.add("fa-solid", "fa-arrows-up-down-left-right");
+        figureModalGallery.appendChild(divIconeModalArrow);
+        figureModalGallery.appendChild(divIconeModal);
+        divIconeModalArrow.appendChild(iconeModalArrow);
+        divIconeModal.appendChild(iconeModalDelete);
         modalGallery.appendChild(figureModalGallery);
         figureModalGallery.appendChild(imageElement);
         figureModalGallery.appendChild(editModalGallery);
     }
 }
 genererModalGallery(data);
+
+// Apparition de la flèche quand la souris est sur une image
+const figureDiv = document.querySelectorAll(".gallery-modal figure");
+figureDiv.forEach(function (hover) {
+    const iconeDiv = hover.querySelector(".div-icone-arrow");
+    hover.addEventListener("mouseenter", () => {
+        iconeDiv.style.display = 'block';
+    })
+
+    hover.addEventListener("mouseleave", () => {
+        iconeDiv.style.display = 'none';
+    })
+})
 
 // Ouverture et fermeture de la deuxième modal
 openModalTwo.addEventListener("click", () => {

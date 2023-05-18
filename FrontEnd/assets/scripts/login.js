@@ -20,9 +20,9 @@ loginBtn.addEventListener("submit", async (event) => {
     if (response.ok) {
         const result = await response.json();
         const valeurResult = JSON.stringify(result);
-        window.localStorage.setItem("token", valeurResult);
+        sessionStorage.setItem("token", valeurResult);
         window.location.href = "/Frontend/index.html";
     } else {
-        alert("Wrong login");
+        alert("Mauvais E-mail/Mot de passe");
     };
 });
