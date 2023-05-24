@@ -21,7 +21,7 @@ loginBtn.addEventListener("submit", async (event) => {
         const result = await response.json();
         const valeurResult = JSON.stringify(result);
         sessionStorage.setItem("token", valeurResult);
-        window.location.href = "/Frontend/index.html";
+        window.location = "index.html";
     } else {
         alert("Mauvais E-mail/Mot de passe");
     };

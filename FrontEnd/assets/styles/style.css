@@ -560,9 +560,10 @@ output {
 	width: 100%;
 }
 
-.gallery-modal figure{
-	position:relative;
+.gallery-modal figure {
+	position: relative;
 }
+
 #preview_image {
 	position: absolute;
 	width: 170px;
@@ -571,28 +572,26 @@ output {
 }
 
 
-.div-icone, .div-icone-arrow {
+.div-icone,
+.div-icone-arrow {
 	width: 17px;
 	aspect-ratio: 1;
 	background-color: black;
 	z-index: 1;
 	display: flex;
 	justify-content: center;
-	position:absolute;
-	right:2px;
+	position: absolute;
+	right: 2px;
 }
 
-.div-icone-arrow{
-	display:none;
-	right:22px;
+.div-icone-arrow {
+	display: none;
+	right: 22px;
 }
 
-.fa-trash-can, .fa-arrows-up-down-left-right {
+.fa-trash-can,
+.fa-arrows-up-down-left-right {
 	z-index: 2;
 	color: white;
 	margin: 2px;
 }
-
-/* .fa-arrows-up-down-left-right{
-	display:none;
-} */

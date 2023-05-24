@@ -12,6 +12,10 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/styles/style.css">
 	<script src="https://kit.fontawesome.com/d6cf6a425f.js" crossorigin="anonymous"></script>
+	<script type="module" src="assets/scripts/modal.js"></script>
+	<script type="module" src="assets/scripts/gallery.js"></script>
+	<script type="module" src="assets/scripts/home.js"></script>
+	<script type="module" src="assets/scripts/addproject.js"></script>
 </head>
 
 <body>
@@ -79,12 +83,14 @@
 						<button class="modal-close" data-close-modal-two>X</button>
 					</div>
 					<h3>Ajout photo</h3>
-					<form method="POST" id="addProjet" class="form-modal" enctype="multipart/form-data">
+					<form method="post" id="addProjet" class="form-modal" enctype="multipart/form-data"
+						name="nameAddProject">
 						<label for="upload_picture">
 							<div class="box-add-picture">
 								<i class="fa-regular fa-image"></i>
 								<div class="btn-add-picture">+ Ajouter photo</div>
-								<input id="upload_picture" name="upload_picture" type="file" accept="image/jpeg, image/jpg, image.png" />
+								<input id="upload_picture" name="upload_picture" type="file"
+									accept="image/jpeg, image/jpg, image.png" />
 								<output>jpg, png : 4mo max</output>
 								<div id="preview_image"></div>
 							</div>
@@ -133,13 +139,6 @@
 			</ul>
 		</nav>
 	</footer>
-	<script type="module" src="assets/scripts/gallery.js"></script>
-	<script type="module" src="assets/scripts/home.js"></script>
-	<script type="module" src="assets/scripts/modal.js"></script>
-	<script type="module" src="assets/scripts/addproject.js"></script>
-	<script type="module" src="assets/scripts/delete.js"></script>
-	
-	
 </body>
 
 </html>

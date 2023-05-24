@@ -6,12 +6,12 @@ if (getToken) {
     document.querySelector(".logout").style.display = "inline-block";
     document.querySelector(".logout").addEventListener("click", () => {
         sessionStorage.clear();
-        window.location.href = "/Frontend/index.html";
+        window.location = "index.html";
     });
     document.querySelector(".black-box").style.display = "flex";
     document.querySelector(".login").style.display = "none";
     document.querySelectorAll(".btn-filtrer").forEach(function (bouton) {
-        bouton.remove();
+        bouton.style.display ='none';
     });
     document.querySelectorAll(".hidden").forEach(function (show) {
         show.classList.toggle("show");

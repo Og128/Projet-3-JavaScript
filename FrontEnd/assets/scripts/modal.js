@@ -31,37 +31,53 @@ modalOne.addEventListener("click", e => {
 // Récupération des données de l'api
 const response = await fetch('http://localhost:5678/api/works');
 const data = await response.json();
+import { genererGallery } from "./gallery.js";
 
-function genererModalGallery(data) {
+const stringToken = sessionStorage.getItem("token");
+const parsedToken = JSON.parse(stringToken);
+export function genererModalGallery(data) {
     for (let i = 0; i < data.length; i++) {
         const modalGallery = document.querySelector(".gallery-modal");
-        const figureModalGallery = document.createElement("figure");
-        const imageElement = document.createElement("img");
-        imageElement.src = data[i].imageUrl;
-        imageElement.alt = data[i].title;
-        imageElement.id = data[i].id;
-        const editModalGallery = document.createElement("figcaption");
-        editModalGallery.innerText = "Editer";
-        const divIconeModal = document.createElement("a");
-        divIconeModal.href = "#";
-        divIconeModal.id = data[i].id;
-        divIconeModal.classList.add("div-icone");
-        const iconeModalDelete = document.createElement("i");
-        iconeModalDelete.classList.add("fa-regular", "fa-trash-can");
-        const divIconeModalArrow = document.createElement("div");
-        divIconeModalArrow.classList.add("div-icone-arrow");
-        const iconeModalArrow = document.createElement("i");
-        iconeModalArrow.classList.add("fa-solid", "fa-arrows-up-down-left-right");
-        figureModalGallery.appendChild(divIconeModalArrow);
-        figureModalGallery.appendChild(divIconeModal);
-        divIconeModalArrow.appendChild(iconeModalArrow);
-        divIconeModal.appendChild(iconeModalDelete);
-        modalGallery.appendChild(figureModalGallery);
-        figureModalGallery.appendChild(imageElement);
-        figureModalGallery.appendChild(editModalGallery);
+        const figureModalGallery = `
+        <figure>
+        <div id="${data[i].id}" class="div-icone"><i class="fa-regular fa-trash-can"></i></div>
+            <div class="div-icone-arrow"><i class="fa-solid fa-arrows-up-down-left-right"></i></div>
+            <img src="${data[i].imageUrl}" alt="${data[i].title}" id="${data[i].id}" />
+            <figcaption>Editer</figcaption>
+        </figure>`;
+        const figureGalleryMod = document.createRange().createContextualFragment(figureModalGallery)
+        modalGallery.appendChild(figureGalleryMod)
     }
+    const deleteGallery = document.querySelectorAll(".div-icone");
+    deleteGallery.forEach(function (trash) {
+        trash.addEventListener("click", async () => {
+            let confirmed = confirm('tié sur ?')
+            if (!confirmed) return
+            const token = `bearer ${parsedToken.token}`;
+            const targetId = trash.getAttribute('id');
+            const response = await fetch(`http://localhost:5678/api/works/${targetId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': token
+                }
+            })
+            if (response.ok) {
+                trash.parentNode.remove()
+                const response = await fetch('http://localhost:5678/api/works');
+                const data = await response.json();
+                document.querySelector(".gallery").innerHTML = "";
+                genererGallery(data);
+                alert('Votre galerie a bien été supprimé')
+            } else {
+                alert('Une erreur est apparu');
+                console.error('Une erreur est apparu');
+            }
+        })
+    })
+
 }
 genererModalGallery(data);
+
 
 // Apparition de la flèche quand la souris est sur une image
 const figureDiv = document.querySelectorAll(".gallery-modal figure");

@@ -3,7 +3,7 @@ const response = await fetch('http://localhost:5678/api/works');
 const data = await response.json();
 
 // création de la gallerie
-function genererGallery(data) {
+export function genererGallery(data) {
     for (let i = 0; i < data.length; i++) {
         const sectionGallery = document.querySelector(".gallery");
         const figureGallery = document.createElement("figure");
