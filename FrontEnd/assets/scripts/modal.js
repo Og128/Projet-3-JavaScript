@@ -6,6 +6,8 @@ const openModalTwo = document.querySelector("[data-open-modal-two]");
 const closeModalTwo = document.querySelector("[data-close-modal-two]")
 const modalTwo = document.querySelector("[data-modal-two]");
 const previousModal = document.querySelector(".fa-arrow-left");
+const form = document.querySelector(".form-modal");
+
 
 // Ouverture et fermeture de la première modal
 openModalOne.addEventListener("click", () => {
@@ -28,11 +30,11 @@ modalOne.addEventListener("click", e => {
     }
 });
 
+
 // Récupération des données de l'api
 const response = await fetch('http://localhost:5678/api/works');
 const data = await response.json();
 import { genererGallery } from "./gallery.js";
-
 const stringToken = sessionStorage.getItem("token");
 const parsedToken = JSON.parse(stringToken);
 export function genererModalGallery(data) {
@@ -48,6 +50,9 @@ export function genererModalGallery(data) {
         const figureGalleryMod = document.createRange().createContextualFragment(figureModalGallery)
         modalGallery.appendChild(figureGalleryMod)
     }
+
+
+    // Supprimer un projet de la gallerie
     const deleteGallery = document.querySelectorAll(".div-icone");
     deleteGallery.forEach(function (trash) {
         trash.addEventListener("click", async () => {
@@ -63,18 +68,17 @@ export function genererModalGallery(data) {
             })
             if (response.ok) {
                 trash.parentNode.remove()
-                const response = await fetch('http://localhost:5678/api/works');
-                const data = await response.json();
+                const trashResponse = await fetch('http://localhost:5678/api/works');
+                const trashData = await trashResponse.json();
                 document.querySelector(".gallery").innerHTML = "";
-                genererGallery(data);
-                alert('Votre galerie a bien été supprimé')
+                genererGallery(trashData);
+                alert('Votre galerie a bien été supprimé');
             } else {
                 alert('Une erreur est apparu');
                 console.error('Une erreur est apparu');
             }
         })
     })
-
 }
 genererModalGallery(data);
 
@@ -92,6 +96,7 @@ figureDiv.forEach(function (hover) {
     })
 })
 
+
 // Ouverture et fermeture de la deuxième modal
 openModalTwo.addEventListener("click", () => {
     modalOne.close();
@@ -101,18 +106,22 @@ openModalTwo.addEventListener("click", () => {
 window.onclick = function (e) {
     if (e.target == modalTwo) {
         modalTwo.close();
+        form.reset();
     }
 }
 
 closeModalTwo.addEventListener("click", () => {
     modalTwo.close();
+    form.reset();
 });
+
 
 // Redirection vers la première modal
 previousModal.addEventListener("click", () => {
     modalTwo.close();
     modalOne.showModal();
 });
+
 
 // Preview image 
 const previewInput = document.querySelector("#upload_picture");

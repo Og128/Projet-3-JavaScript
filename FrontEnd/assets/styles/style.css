@@ -467,6 +467,10 @@ dialog h3 {
 	color: #D65353;
 }
 
+.delete-gallery:hover{
+	cursor: pointer;
+}
+
 .nav-modal {
 	width: 100%;
 	display: flex;
@@ -582,6 +586,10 @@ output {
 	justify-content: center;
 	position: absolute;
 	right: 2px;
+}
+
+.div-icone:hover {
+	cursor: pointer;
 }
 
 .div-icone-arrow {

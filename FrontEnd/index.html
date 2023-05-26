@@ -73,7 +73,7 @@
 					</div>
 					<div class="separator"></div>
 					<button class="add-picture" data-open-modal-two>Ajouter une photo</button>
-					<a href="##" class="delete-gallery">Supprimer la galerie</a>
+					<div class="delete-gallery">Supprimer la galerie</div>
 				</div>
 			</dialog>
 			<dialog data-modal-two>
@@ -90,20 +90,15 @@
 								<i class="fa-regular fa-image"></i>
 								<div class="btn-add-picture">+ Ajouter photo</div>
 								<input id="upload_picture" name="upload_picture" type="file"
-									accept="image/jpeg, image/jpg, image.png" />
+									accept=".jpeg, .jpg, .png" required />
 								<output>jpg, png : 4mo max</output>
 								<div id="preview_image"></div>
 							</div>
 						</label>
 						<div class="input-label-modal">
 							<label for="title">Titre</label>
-							<input type="text" name="title" id="title">
+							<input type="text" name="title" id="title" required>
 							<label for="categorie">Catégorie</label>
-							<select name="categorie" id="categorie">
-								<option value="1" selected>Objets</option>
-								<option value="2">Appartement</option>
-								<option value="3">Hôtels & restaurants</option>
-							</select>
 						</div>
 						<div class="separator"></div>
 						<button type="submit" form="addProjet" class="validate">Valider</button>
