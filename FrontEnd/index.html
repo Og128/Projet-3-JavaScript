@@ -39,12 +39,12 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
-				<a href="#" class="hidden">
-					<figcaption class="edited-figure">
+				<div class="hidden">
+					<div class="edited-figure">
 						<i class="fa-regular fa-pen-to-square fa-black"></i>
 						<p class="modify">modifier</p>
-					</figcaption>
-				</a>
+					</div>
+				</div>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -79,26 +79,24 @@
 			<dialog data-modal-two>
 				<div class="modal-box">
 					<div class="nav-modal">
-						<a href="##"><i class="fa-solid fa-arrow-left"></i></a>
+						<a href="#"><i class="fa-solid fa-arrow-left"></i></a>
 						<button class="modal-close" data-close-modal-two>X</button>
 					</div>
 					<h3>Ajout photo</h3>
 					<form method="post" id="addProjet" class="form-modal" enctype="multipart/form-data"
 						name="nameAddProject">
-						<label for="upload_picture">
-							<div class="box-add-picture">
-								<i class="fa-regular fa-image"></i>
-								<div class="btn-add-picture">+ Ajouter photo</div>
-								<input id="upload_picture" name="upload_picture" type="file"
-									accept=".jpeg, .jpg, .png" required />
-								<output>jpg, png : 4mo max</output>
-								<div id="preview_image"></div>
-							</div>
+						<label for="upload_picture" class="box-add-pic">
+							<i class="fa-regular fa-image"></i>
+							<span class="btn-add-picture">+ Ajouter photo</span>
+							<input id="upload_picture" name="upload_picture" type="file" accept=".jpeg, .jpg, .png"
+								required>
+							<span>jpg, png : 4mo max</span>
+							<span id="preview_image"></span>
 						</label>
 						<div class="input-label-modal">
 							<label for="title">Titre</label>
 							<input type="text" name="title" id="title" required>
-							<label for="categorie">Catégorie</label>
+							<label>Catégorie</label>
 						</div>
 						<div class="separator"></div>
 						<button type="submit" form="addProjet" class="validate">Valider</button>

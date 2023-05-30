@@ -16,6 +16,7 @@ openModalOne.addEventListener("click", () => {
 
 closeModalOne.addEventListener("click", () => {
     modalOne.close();
+    resetForm();
 });
 
 modalOne.addEventListener("click", e => {
@@ -56,7 +57,7 @@ export function genererModalGallery(data) {
     const deleteGallery = document.querySelectorAll(".div-icone");
     deleteGallery.forEach(function (trash) {
         trash.addEventListener("click", async () => {
-            let confirmed = confirm('tié sur ?')
+            let confirmed = confirm('Etes-vous sûr de vouloir supprimer ce projet ?')
             if (!confirmed) return
             const token = `bearer ${parsedToken.token}`;
             const targetId = trash.getAttribute('id');
@@ -72,7 +73,6 @@ export function genererModalGallery(data) {
                 const trashData = await trashResponse.json();
                 document.querySelector(".gallery").innerHTML = "";
                 genererGallery(trashData);
-                alert('Votre galerie a bien été supprimé');
             } else {
                 alert('Une erreur est apparu');
                 console.error('Une erreur est apparu');
@@ -97,22 +97,24 @@ figureDiv.forEach(function (hover) {
 })
 
 
+
 // Ouverture et fermeture de la deuxième modal
 openModalTwo.addEventListener("click", () => {
     modalOne.close();
     modalTwo.showModal();
 })
 
+//Fermeture de la deuxième modal
 window.onclick = function (e) {
     if (e.target == modalTwo) {
         modalTwo.close();
-        form.reset();
+        resetForm();
     }
 }
 
 closeModalTwo.addEventListener("click", () => {
     modalTwo.close();
-    form.reset();
+    resetForm();
 });
 
 
@@ -121,7 +123,6 @@ previousModal.addEventListener("click", () => {
     modalTwo.close();
     modalOne.showModal();
 });
-
 
 // Preview image 
 const previewInput = document.querySelector("#upload_picture");
@@ -134,3 +135,11 @@ previewInput.addEventListener("change", function () {
     });
     reader.readAsDataURL(this.files[0]);
 });
+
+// Suppression des données du formulaire
+export function resetForm(){
+    form.reset();
+    document.querySelector("#preview_image").style.backgroundImage = "none";
+};
+
+

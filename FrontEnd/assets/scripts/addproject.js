@@ -1,5 +1,5 @@
 import { genererGallery } from "./gallery.js";
-import { genererModalGallery } from "./modal.js";
+import { genererModalGallery, resetForm } from "./modal.js";
 
 // Changement du background du bouton lors que le formulaire est rempli
 let check = document.querySelector("#addProjet");
@@ -43,8 +43,6 @@ addProject.addEventListener("submit", async (e) => {
     const getCategory = document.querySelector("#categorie").value;
     const uploadPic = document.querySelector("#upload_picture");
     const intCategory = parseInt(getCategory);
-    console.log(uploadPic)
-    uploadPic ? null : alert('Choississez une image pour le projet')
     const form = new FormData();
     form.append('title', getTitle);
     form.append('category', intCategory);
@@ -61,6 +59,7 @@ addProject.addEventListener("submit", async (e) => {
     if (response.ok) {
         const modalTwo = document.querySelector("[data-modal-two]");
         modalTwo.close();
+        resetForm();
         const response = await fetch('http://localhost:5678/api/works');
         const data = await response.json();
         document.querySelector('.gallery-modal').innerHTML = "";

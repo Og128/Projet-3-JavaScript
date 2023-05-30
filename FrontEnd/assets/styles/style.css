@@ -477,7 +477,7 @@ dialog h3 {
 	justify-content: space-between;
 }
 
-.box-add-picture {
+.box-add-pic {
 	position: relative;
 	width: 420px;
 	height: 170px;
@@ -572,14 +572,14 @@ output {
 	position: absolute;
 	width: 170px;
 	height: 170px;
-	background-size: cover;
+	background-size:contain;
 }
 
 
 .div-icone,
 .div-icone-arrow {
 	width: 17px;
-	aspect-ratio: 1;
+	aspect-ratio: 1/1;
 	background-color: black;
 	z-index: 1;
 	display: flex;
